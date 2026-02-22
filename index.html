@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Code-Alongside - Ihr Partner für Cybersicherheit, Informationssicherheit und IT-Sicherheitsberatung in Österreich.">
+    <meta name="robots" content="index, follow">
+    <title>Code-Alongside | Cybersicherheit & Beratung</title>
+    <link rel="canonical" href="https://code-alongsi.de/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Code-Alongside | Cybersicherheit &amp; Beratung">
+    <meta property="og:description"
+        content="Ihr Partner für Cybersicherheit, Informationssicherheit und IT-Sicherheitsberatung in Österreich.">
+    <meta property="og:url" content="https://code-alongsi.de/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/media/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/media/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+</head>
+
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="/" class="header__logo" aria-label="Code-Alongside - Startseite">
+                <span class="logo__text">Code-<span class="logo__accent">Alongside</span></span>
+            </a>
+
+            <button class="header__menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
+
+            <nav id="main-nav" class="header__nav" aria-label="Hauptnavigation">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#leistungen" class="nav__link">Leistungen</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#ueber-uns" class="nav__link">Über uns</a>
+                    </li>
+                    <li class="nav__item nav__item--cta">
+                        <a href="#kontakt" class="nav__link nav__link--cta">Kontakt</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__container">
+                <h1 id="hero-title" class="hero__title">
+                    Cybersicherheit für Ihr Unternehmen
+                </h1>
+                <p class="hero__subtitle">
+                    Praktische Lösungen. Nachhaltige Sicherheit. Experten an Ihrer Seite.
+                </p>
+                <div class="hero__cta-group">
+                    <a href="#leistungen" class="hero__cta button button--secondary">
+                        Unsere Leistungen
+                    </a>
+                    <a href="#kontakt" class="hero__cta button button--primary">
+                        Kontakt aufnehmen
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="leistungen" class="services" aria-labelledby="services-title">
+            <div class="services__container">
+                <h2 id="services-title" class="section__title">Unsere Leistungen</h2>
+
+                <div class="services__grid">
+
+                    <!-- Service 1: Informationssicherheit -->
+                    <article class="service-card" aria-labelledby="service-1-title">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3 id="service-1-title" class="service-card__title">Informationssicherheit</h3>
+                        <ul class="service-card__list">
+                            <li>Sicherheitsanalysen und Risikobewertungen</li>
+                            <li>Penetrationstests und Schwachstellen-Scans</li>
+                            <li>Sicherheitskonzepte nach BSI-Standards und ISO27001</li>
+                            <li>Incident Response Planung</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 2: Beratung -->
+                    <article class="service-card" aria-labelledby="service-2-title">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                            </svg>
+                        </div>
+                        <h3 id="service-2-title" class="service-card__title">Beratung</h3>
+                        <ul class="service-card__list">
+                            <li>Strategische IT-Sicherheitsberatung</li>
+                            <li>Compliance-Unterstützung (DSGVO, NIS2, DORA)</li>
+                            <li>Sicherheitsarchitektur-Design</li>
+                            <li>Vendor Security Assessments</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 3: vCISO -->
+                    <article class="service-card" aria-labelledby="service-3-title">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <h3 id="service-3-title" class="service-card__title">Virtual CISO (vCISO)</h3>
+                        <ul class="service-card__list">
+                            <li>Externe Sicherheitsleitung für KMUs und EPUs</li>
+                            <li>Strategische Sicherheitsplanung</li>
+                            <li>Budget- und Ressourcenplanung</li>
+                            <li>Schnittstelle zu Aufsichtsrat/Management</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 4: Schulungen -->
+                    <article class="service-card" aria-labelledby="service-4-title">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <h3 id="service-4-title" class="service-card__title">Schulungen</h3>
+                        <ul class="service-card__list">
+                            <li>Security Awareness Trainings</li>
+                            <li>Phishing-Simulationen</li>
+                            <li>Workshops für Entwickler</li>
+                            <li>Individuelle Firmenschulungen</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="ueber-uns" class="about" aria-labelledby="about-title">
+            <div class="about__container">
+                <h2 id="about-title" class="section__title">Über Code-Alongside</h2>
+
+                <div class="about__content">
+                    <p class="about__text">
+                        Code-Alongside ist Ihr Experten-Partner für Informationssicherheit.
+                        Wir unterstützen Unternehmen dabei, ihre digitalen Assets zu schützen
+                        und nachhaltige Sicherheitsstrategien zu entwickeln.
+                    </p>
+                    <p class="about__text">
+                        Mit fundiertem Fachwissen und praktischer Erfahrung bieten wir
+                        maßgeschneiderte Lösungen für Ihre individuellen Sicherheitsanforderungen.
+                    </p>
+                </div>
+
+                <div class="about__values">
+                    <div class="value-item">
+                        <span class="value-item__icon" aria-hidden="true">🔒</span>
+                        <span class="value-item__text">Praxisorientierte Sicherheit</span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-item__icon" aria-hidden="true">🎯</span>
+                        <span class="value-item__text">Maßgeschneiderte Lösungen</span>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-item__icon" aria-hidden="true">🤝</span>
+                        <span class="value-item__text">Partnerschaftliche Zusammenarbeit</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontakt" class="contact" aria-labelledby="contact-title">
+            <div class="contact__container">
+                <h2 id="contact-title" class="section__title">Kontakt aufnehmen</h2>
+
+                <div class="contact__content">
+                    <div class="contact__info">
+                        <p class="contact__text">
+                            Sie haben Fragen oder möchten ein unverbindliches Gespräch vereinbaren?
+                        </p>
+
+                        <a href="mailto:peter@code-alongsi.de" class="button button--primary">
+                            Schreiben Sie uns eine E-Mail
+                        </a>
+
+                        <p class="contact__text">
+                            Wir freuen uns darauf Ihr Unternehmen sicher zu machen!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+
+            <div class="footer__brand">
+                <span class="footer__logo">Code-<span class="logo__accent">Alongside</span></span>
+                <p class="footer__tagline">Ihr Partner für Cybersicherheit</p>
+            </div>
+
+            <nav class="footer__nav" aria-label="Footer Navigation - Leistungen">
+                <h4 class="footer__heading">Leistungen</h4>
+                <ul class="footer__list">
+                    <li><a href="#leistungen" class="footer__link">Informationssicherheit</a></li>
+                    <li><a href="#leistungen" class="footer__link">Beratung</a></li>
+                    <li><a href="#leistungen" class="footer__link">vCISO</a></li>
+                    <li><a href="#leistungen" class="footer__link">Schulungen</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer__nav" aria-label="Footer Navigation - Unternehmen">
+                <h4 class="footer__heading">Unternehmen</h4>
+                <ul class="footer__list">
+                    <li><a href="#ueber-uns" class="footer__link">Über uns</a></li>
+                    <li><a href="#kontakt" class="footer__link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer__nav" aria-label="Footer Navigation - Rechtliches">
+                <h4 class="footer__heading">Rechtliches</h4>
+                <ul class="footer__list">
+                    <li><a href="/impressum.html" class="footer__link">Impressum</a></li>
+                    <li><a href="/datenschutz.html" class="footer__link">Datenschutz</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                © <span id="current-year">2026</span> Code-Alongside. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
