@@ -417,11 +417,11 @@ ol {
 
 /* Navigation */
 .header__nav {
-    position: fixed;
-    top: var(--header-height-mobile);
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100vh - var(--header-height-mobile));
     background-color: var(--color-void);
     display: flex;
     align-items: center;
