@@ -83,9 +83,14 @@ function trapFocus(e) {
 }
 
 if (menuToggle && mainNav) {
-    // Initialize menu as closed with inert attribute
-    mainNav.setAttribute('inert', '');
-    mainNav.setAttribute('aria-hidden', 'true');
+    // Check if we're on desktop (1024px+) where nav is always visible
+    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+
+    // Initialize menu as closed with inert attribute ONLY on mobile
+    if (!isDesktop()) {
+        mainNav.setAttribute('inert', '');
+        mainNav.setAttribute('aria-hidden', 'true');
+    }
 
     // Toggle menu on button click
     menuToggle.addEventListener('click', function () {
@@ -100,11 +105,28 @@ if (menuToggle && mainNav) {
     // Add focus trap listener
     document.addEventListener('keydown', trapFocus);
 
-    // Close menu when clicking a link
+    // Close menu when clicking a link (mobile only)
     mainNav.querySelectorAll('.nav__link').forEach(link => {
         link.addEventListener('click', () => {
-            closeMenu();
+            if (!isDesktop()) {
+                closeMenu();
+            }
         });
+    });
+
+    // Handle viewport resize - manage inert attribute
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+        if (e.matches) {
+            // Desktop: remove inert to make nav clickable
+            mainNav.removeAttribute('inert');
+            mainNav.removeAttribute('aria-hidden');
+        } else {
+            // Mobile: close menu and re-add inert
+            if (!mainNav.classList.contains('is-open')) {
+                mainNav.setAttribute('inert', '');
+                mainNav.setAttribute('aria-hidden', 'true');
+            }
+        }
     });
 }
 

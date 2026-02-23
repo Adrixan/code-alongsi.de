@@ -418,7 +418,7 @@ ol {
 /* Navigation */
 .header__nav {
     position: fixed;
-    top: 0;
+    top: var(--header-height-mobile);
     left: 0;
     right: 0;
     bottom: 0;
@@ -429,6 +429,8 @@ ol {
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-base), visibility var(--transition-base);
+    z-index: 99;
+    /* Below header z-index so header stays visible on top */
 }
 
 .header__nav.is-open {
