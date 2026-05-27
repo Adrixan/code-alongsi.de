@@ -1,0 +1,13 @@
+{
+  "name": "code-alongside-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "axe-playwright": "^2.0.1"
+  }
+}

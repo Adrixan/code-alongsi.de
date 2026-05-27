@@ -1,2 +1,10 @@
 # Exclude markdown files
 *.md
+
+# Dependencies
+node_modules/
+
+# Test outputs
+test-results/
+playwright-report/
+blob-report/
