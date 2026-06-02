@@ -635,25 +635,11 @@ ol {
     .services__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .service-card:nth-child(5) {
-        grid-column: span 2;
-    }
 }
 
 @media (min-width: 900px) {
     .services__grid {
         grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .service-card:nth-child(5) {
-        grid-column: span 1;
-    }
-}
-
-@media (min-width: 1200px) {
-    .services__grid {
-        grid-template-columns: repeat(5, 1fr);
     }
 }
 
