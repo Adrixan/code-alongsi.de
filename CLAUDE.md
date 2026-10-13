@@ -19,5 +19,6 @@ Brand and style: `~/.config/ai/BRANDING.md` ("Bioluminescent Night", Space Grote
 - The server docroot is shared with other apps (wp, meteo-rss, eztvxrss, imagecatcher). Never mirror or `--delete` it. The server has no rsync.
 - No external hosts: CSP is `default-src 'self'`; fonts are self-hosted in `media/fonts` (OFL-1.1). The Datenschutz page promises no external tools.
 - Rollback: backups are in `~/.deploy-backups/<UTC timestamp>.tar` on the server (newest 10 kept); restore with `ssh code-alongsi.de "tar -C httpdocs -xf .deploy-backups/<ts>.tar"`.
+- Legacy dev files (package.json, tests/, .github/, ...) from an earlier git-based deploy were moved out of the docroot on 2026-10-13 to `~/.deploy-backups/legacy-20261013T142301Z/`. Never deploy dev files again; the allow-list prevents it. Permanent removal of that folder is left to the owner.
 - `.well-known/security.txt` expires 2027-09-30. Renew it before then (the deploy warns 30 days ahead).
 - Local test browser: if Playwright's Chromium build is missing, set `PLAYWRIGHT_CHROMIUM_PATH` (the deploy script auto-detects a cached one).
