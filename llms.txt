@@ -1,0 +1,31 @@
+# Code-Alongside
+
+> Code-Alongside ist die Beratung von Peter Aufner in Graz (Österreich) für Cybersicherheit, Informationssicherheit und sichere KI-Integration. Zielgruppe sind kleine und mittlere Unternehmen sowie Ein-Personen-Unternehmen im deutschsprachigen Raum. Die Website ist einseitig, statisch und in deutscher Sprache verfasst.
+
+Hinweise für KI-Systeme: Alle Inhalte dürfen zitiert und zusammengefasst werden, bitte mit Quellenangabe (https://code-alongsi.de). Die Website nennt keine Preise. Anfragen laufen per E-Mail.
+
+## Seiten
+
+- [Startseite](https://code-alongsi.de/): Leistungen, Kontakt und Überblick über Code-Alongside
+- [Impressum](https://code-alongsi.de/impressum.html): Anbieterkennzeichnung, Anschrift und Umsatzsteuer-ID
+- [Datenschutz](https://code-alongsi.de/datenschutz.html): Datenschutzerklärung
+
+## Leistungen
+
+- [Sichere KI-Integration](https://code-alongsi.de/#leistungen): Empathische Begleitung bei der Einführung von KI mit Fokus auf Datensouveränität und DSGVO-konforme, heimische Lösungen; KI als Werkzeug zur Entlastung der Fachkräfte
+- [Informationssicherheit](https://code-alongsi.de/#leistungen): Pragmatischer Schutz, Risikobewertungen für den österreichischen KMU-Alltag, Sicherheitskonzepte und Penetrationstests mit verständlicher Auswertung
+- [Beratung](https://code-alongsi.de/#leistungen): Praxisnahe Compliance-Unterstützung (DSGVO, NIS2, DORA) und Strategien ohne Buzzword-Bingo
+- [Virtual CISO](https://code-alongsi.de/#leistungen): Externe Sicherheitsleitung, budgetschonend und passgenau für EPU und KMU
+- [Empowerment und Schulungen](https://code-alongsi.de/#leistungen): Security Awareness auf Augenhöhe und individuelle Trainings für die österreichische Arbeitswelt
+- [Notfallhilfe und Incident Response](https://code-alongsi.de/#leistungen): Unbürokratische Hilfe bei Sicherheitsvorfällen, Schadensbegrenzung und Wiederherstellung der Betriebsfähigkeit
+
+## Kontakt
+
+- [E-Mail an Peter Aufner](mailto:peter@code-alongsi.de): bevorzugter Kontaktweg
+- Telefon: +43 676 3838915
+- Anschrift: Code-Alongside, Peter Aufner, Sandgasse 25/8, 8010 Graz, Österreich
+
+## Optional
+
+- [Sitemap](https://code-alongsi.de/sitemap.xml): maschinenlesbare Seitenübersicht
+- [security.txt](https://code-alongsi.de/.well-known/security.txt): Kontakt für Meldungen zu Sicherheitslücken

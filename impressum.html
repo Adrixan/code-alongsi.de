@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#121212">
+    <meta name="author" content="Peter Aufner">
     <meta name="description" content="Impressum von Code-Alongside - Cybersicherheit & IT-Sicherheitsberatung">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <title>Impressum | Code-Alongside</title>
     <link rel="canonical" href="https://code-alongsi.de/impressum.html">
 
@@ -16,14 +19,14 @@
     <meta property="og:description" content="Impressum von Code-Alongside - Cybersicherheit & IT-Sicherheitsberatung">
     <meta property="og:url" content="https://code-alongsi.de/impressum.html">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Code-Alongside">
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:image" content="https://code-alongsi.de/media/Logo.png">
+    <meta name="twitter:card" content="summary">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Self-hosted fonts (preload the two most used faces) -->
+    <link rel="preload" href="/media/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/media/fonts/space-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -54,9 +57,6 @@
                     <li class="nav__item">
                         <a href="/#leistungen" class="nav__link">Leistungen</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="/#ueber-uns" class="nav__link">Über uns</a>
-                    </li>
                     <li class="nav__item nav__item--cta">
                         <a href="/#kontakt" class="nav__link nav__link--cta">Kontakt</a>
                     </li>
@@ -66,7 +66,7 @@
     </header>
 
     <!-- Main Content -->
-    <main id="main-content" role="main">
+    <main id="main-content">
         <section class="legal-section" aria-labelledby="impressum-title">
             <div class="legal-section__container">
                 <h1 id="impressum-title" class="section__title">Impressum</h1>
@@ -164,25 +164,26 @@
             </div>
 
             <nav class="footer__nav" aria-label="Footer Navigation - Leistungen">
-                <h4 class="footer__heading">Leistungen</h4>
+                <h2 class="footer__heading">Leistungen</h2>
                 <ul class="footer__list">
+                    <li><a href="/#leistungen" class="footer__link">Sichere KI-Integration</a></li>
                     <li><a href="/#leistungen" class="footer__link">Informationssicherheit</a></li>
                     <li><a href="/#leistungen" class="footer__link">Beratung</a></li>
                     <li><a href="/#leistungen" class="footer__link">vCISO</a></li>
                     <li><a href="/#leistungen" class="footer__link">Schulungen</a></li>
+                    <li><a href="/#leistungen" class="footer__link">Notfallhilfe</a></li>
                 </ul>
             </nav>
 
             <nav class="footer__nav" aria-label="Footer Navigation - Unternehmen">
-                <h4 class="footer__heading">Unternehmen</h4>
+                <h2 class="footer__heading">Unternehmen</h2>
                 <ul class="footer__list">
-                    <li><a href="/#ueber-uns" class="footer__link">Über uns</a></li>
                     <li><a href="/#kontakt" class="footer__link">Kontakt</a></li>
                 </ul>
             </nav>
 
             <nav class="footer__nav" aria-label="Footer Navigation - Rechtliches">
-                <h4 class="footer__heading">Rechtliches</h4>
+                <h2 class="footer__heading">Rechtliches</h2>
                 <ul class="footer__list">
                     <li><a href="/impressum.html" class="footer__link" aria-current="page">Impressum</a></li>
                     <li><a href="/datenschutz.html" class="footer__link">Datenschutz</a></li>

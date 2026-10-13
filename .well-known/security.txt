@@ -1,0 +1,4 @@
+Contact: mailto:peter@code-alongsi.de
+Expires: 2027-09-30T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://code-alongsi.de/.well-known/security.txt

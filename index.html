@@ -4,20 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#121212">
     <meta name="description"
         content="Code-Alongside - Ihr Partner für Cybersicherheit, Informationssicherheit und IT-Sicherheitsberatung in Österreich.">
-    <meta name="robots" content="index, follow">
+    <meta name="author" content="Peter Aufner">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <title>Code-Alongside | Beratung & Cybersicherheit für Österreich</title>
     <link rel="canonical" href="https://code-alongsi.de/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Code-Alongside | Beratung & Cybersicherheit für Österreich">
+    <meta property="og:description"
+        content="Cybersicherheit, Informationssicherheit und sichere KI-Integration für den heimischen Mittelstand. Praxisnah, transparent, auf Augenhöhe.">
+    <meta property="og:url" content="https://code-alongsi.de/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Code-Alongside">
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:image" content="https://code-alongsi.de/media/Logo.png">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Structured data (data block, not executed, so it is compatible with script-src 'self') -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://code-alongsi.de/#website",
+                "url": "https://code-alongsi.de/",
+                "name": "Code-Alongside",
+                "inLanguage": "de-AT",
+                "publisher": { "@id": "https://code-alongsi.de/#organization" }
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://code-alongsi.de/#organization",
+                "name": "Code-Alongside",
+                "url": "https://code-alongsi.de/",
+                "logo": "https://code-alongsi.de/media/Logo.png",
+                "description": "Beratung für Cybersicherheit, Informationssicherheit und sichere KI-Integration für den heimischen Mittelstand.",
+                "email": "peter@code-alongsi.de",
+                "telephone": "+43 676 3838915",
+                "vatID": "ATU80792545",
+                "founder": { "@type": "Person", "name": "Peter Aufner" },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Sandgasse 25/8",
+                    "postalCode": "8010",
+                    "addressLocality": "Graz",
+                    "addressCountry": "AT"
+                },
+                "areaServed": { "@type": "Country", "name": "Österreich" },
+                "knowsAbout": ["Cybersicherheit", "Informationssicherheit", "Künstliche Intelligenz", "DSGVO", "NIS2", "DORA", "Incident Response"],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Leistungen",
+                    "itemListElement": [
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sichere KI-Integration", "description": "Begleitung bei der Einführung von KI mit Fokus auf Datensouveränität und DSGVO-konforme Lösungen." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Informationssicherheit", "description": "Pragmatischer Schutz, Risikobewertungen, Sicherheitskonzepte und Penetrationstests für KMU." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beratung", "description": "Praxisnahe Compliance-Unterstützung (DSGVO, NIS2, DORA) für heimische Betriebe." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virtual CISO", "description": "Externe Sicherheitsleitung, budgetschonend und passgenau für EPU und KMU." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Empowerment und Schulungen", "description": "Security Awareness auf Augenhöhe und individuelle Trainings." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notfallhilfe und Incident Response", "description": "Unbürokratische Hilfe bei Sicherheitsvorfällen und Wiederherstellung der Betriebsfähigkeit." } }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Self-hosted fonts (preload the two most used faces) -->
+    <link rel="preload" href="/media/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/media/fonts/space-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -54,7 +116,7 @@
         </div>
     </header>
 
-    <main id="main-content" role="main">
+    <main id="main-content">
 
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-title">

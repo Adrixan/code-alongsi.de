@@ -10,3 +10,9 @@ playwright-report/
 blob-report/
 
 reference/
+
+# Local scratch space (AI harness rule)
+.scratch/
+
+# Project instructions travel with the repository
+!CLAUDE.md
