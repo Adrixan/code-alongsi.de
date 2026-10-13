@@ -178,15 +178,22 @@ fi
 REMOTE
 
   log "uploading ${CHANGED_COUNT} changed files"
-  # Upload only changed files, extract to an incoming dir, then rename into place.
+  # Step 1: stream the archive to a file outside the docroot (stdin carries the data).
+  INCOMING_TAR=".deploy-incoming-${TS}.tar"
   (cd "$STAGE" && printf '%s\n' $CHANGED | tar -cf - -T -) \
-    | "${SSH[@]}" bash -s -- "$REMOTE_DIR" "$TS" <<'REMOTE' || die "upload failed; restore with: ssh $HOST \"tar -C $REMOTE_DIR -xf $BACKUP_DIR/$TS.tar\""
+    | "${SSH[@]}" "cat > '$INCOMING_TAR'" \
+    || die "upload failed; nothing was changed in the docroot"
+  # Step 2: extract next to the docroot content and rename into place (stdin carries this script).
+  "${SSH[@]}" bash -s -- "$REMOTE_DIR" "$TS" "$INCOMING_TAR" <<'REMOTE' \
+    || die "install step failed; restore with: ssh $HOST \"tar -C $REMOTE_DIR -xf $BACKUP_DIR/$TS.tar\""
 set -euo pipefail
-dir="$1"; ts="$2"
+base="$(pwd)"
+case "$1" in /*) dir="$1" ;; *) dir="$base/$1" ;; esac
+ts="$2"; archive="$base/$3"
 incoming="$dir/.deploy-incoming-$ts"
-trap 'rm -rf "$incoming"' EXIT
+trap 'rm -rf "$incoming" "$archive"' EXIT
 mkdir -p "$incoming"
-tar -xf - -C "$incoming" --no-same-owner
+tar -xf "$archive" -C "$incoming" --no-same-owner
 cd "$incoming"
 move() { while IFS= read -r f; do mkdir -p "../$(dirname "$f")"; mv -f "$f" "../$f"; done; }
 find . -type f ! -name '*.html' | sort | move   # assets first
