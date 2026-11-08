@@ -1110,3 +1110,110 @@ ol {
     color: var(--color-starlight);
     opacity: 0.7;
 }
+/* ============================================
+   Lists and tables inside legal pages
+   ============================================ */
+.legal-section__content ul {
+    list-style: disc;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.legal-section__content li {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+}
+
+.legal-section__content li::marker {
+    color: var(--color-fern);
+}
+
+.legal-section__content address {
+    font-style: normal;
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+
+/* ============================================
+   Apps section (/apps/): sub navigation and app list
+   ============================================ */
+.apps-subnav {
+    margin-bottom: var(--space-lg);
+}
+
+.apps-subnav__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-lg);
+}
+
+.apps-subnav__link {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--color-starlight);
+    padding: var(--space-xs) 0;
+    border-bottom: 2px solid transparent;
+}
+
+.apps-subnav__link:hover {
+    color: var(--color-fern);
+}
+
+.apps-subnav__link[aria-current="page"] {
+    color: var(--color-fern);
+    border-bottom-color: var(--color-fern);
+}
+
+.legal-section__lead {
+    font-size: var(--text-lg);
+}
+
+.legal-section__content ul.app-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: var(--space-md);
+}
+
+.app-list__item {
+    background-color: var(--color-void);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+}
+
+.legal-section__content .app-list__item {
+    margin-bottom: 0;
+}
+
+.app-list__name {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-mint);
+    margin-bottom: var(--space-xs);
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.legal-section__content ul.badge-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.badge-list li {
+    margin-bottom: 0;
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--color-fern);
+    border-radius: var(--radius-md);
+    color: var(--color-fern);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: var(--text-sm);
+}

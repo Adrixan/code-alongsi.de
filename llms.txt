@@ -9,6 +9,15 @@ Hinweise für KI-Systeme: Alle Inhalte dürfen zitiert und zusammengefasst werde
 - [Startseite](https://code-alongsi.de/): Leistungen, Kontakt und Überblick über Code-Alongside
 - [Impressum](https://code-alongsi.de/impressum.html): Anbieterkennzeichnung, Anschrift und Umsatzsteuer-ID
 - [Datenschutz](https://code-alongsi.de/datenschutz.html): Datenschutzerklärung
+- [Apps von Prof. Aufner](https://code-alongsi.de/apps/): Android-Lernspiele und Erzählspiele von Code-Alongside (offline, ohne Werbung, ohne Tracking, noch nicht veröffentlicht)
+
+## Apps
+
+- [Übersicht der Apps](https://code-alongsi.de/apps/): Sudoku Grove, Lernspiele Kids, Lernspiele Teens, Venomous Snake, In Memoriam Pascal, LinguaFusion, The Knots of Alderwick; Support per E-Mail an peter@code-alongsi.de
+- [Datenschutzerklärung für die Apps](https://code-alongsi.de/apps/datenschutz.html): keine Datenerhebung, keine Internet-Berechtigung, Daten nur auf dem Gerät; Kauf über Google Play
+- [Nutzungsbedingungen für die Apps](https://code-alongsi.de/apps/nutzungsbedingungen.html): Endnutzer-Lizenz, Gewährleistung und Aktualisierungen, Haftung, anwendbares Recht
+- [Privacy policy for the apps (English)](https://code-alongsi.de/apps/en/privacy.html): English version of the privacy policy
+- [Terms of use for the apps (English)](https://code-alongsi.de/apps/en/terms.html): English version of the terms of use
 
 ## Leistungen
 
