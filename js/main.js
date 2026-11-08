@@ -9,6 +9,10 @@ const menuToggle = document.querySelector('.header__menu-toggle');
 const mainNav = document.querySelector('.header__nav');
 const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
+// Labels can be overridden per page (data-label-open / data-label-close), e.g. on English pages
+const labelOpen = menuToggle?.dataset.labelOpen || 'Menü öffnen';
+const labelClose = menuToggle?.dataset.labelClose || 'Menü schließen';
+
 let focusableContent = null;
 let firstFocusable = null;
 let lastFocusable = null;
@@ -21,7 +25,7 @@ function openMenu() {
     mainNav.removeAttribute('inert');
     mainNav.removeAttribute('aria-hidden');
     menuToggle.setAttribute('aria-expanded', 'true');
-    menuToggle.setAttribute('aria-label', 'Menü schließen');
+    menuToggle.setAttribute('aria-label', labelClose);
 
     // Get all focusable elements in the menu
     focusableContent = mainNav.querySelectorAll(focusableElements);
@@ -42,7 +46,7 @@ function closeMenu() {
     mainNav.setAttribute('inert', '');
     mainNav.setAttribute('aria-hidden', 'true');
     menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.setAttribute('aria-label', 'Menü öffnen');
+    menuToggle.setAttribute('aria-label', labelOpen);
 
     // Return focus to the menu toggle
     menuToggle.focus();

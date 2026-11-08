@@ -1,7 +1,15 @@
 const { test, expect } = require('@playwright/test');
 const { injectAxe, checkA11y } = require('axe-playwright');
 
-const PAGES = ['/', '/impressum.html', '/datenschutz.html'];
+const APP_PAGES = [
+  '/apps/',
+  '/apps/datenschutz.html',
+  '/apps/nutzungsbedingungen.html',
+  '/apps/en/privacy.html',
+  '/apps/en/terms.html',
+];
+const PAGES = ['/', '/impressum.html', '/datenschutz.html', ...APP_PAGES];
+const pageLang = (path) => (path.startsWith('/apps/en/') ? 'en' : 'de');
 const ORIGIN = 'https://code-alongsi.de';
 
 test.describe('Content and behaviour', () => {
@@ -46,19 +54,21 @@ test.describe('Content and behaviour', () => {
 
     for (const path of PAGES) {
       await page.goto(path);
+      const pageIds = await page.evaluate(() => [...document.querySelectorAll('[id]')].map((e) => e.id));
       const hrefs = await page.evaluate(() =>
         [...document.querySelectorAll('a[href]')].map((a) => a.getAttribute('href')));
       for (const href of hrefs) {
         if (/^(mailto:|tel:|https?:)/.test(href)) continue;
+        // Relative links would resolve differently below /apps/; the site uses root-absolute paths only.
+        expect(href.startsWith('/') || href.startsWith('#'), `${path} -> ${href} must be root-absolute`).toBe(true);
         const [file, hash] = href.split('#');
-        if (file && file !== '/' && file !== '') {
+        if (file && file !== '/') {
           const res = await request.get(file);
           expect(res.status(), `${path} -> ${href}`).toBe(200);
         }
         if (hash) {
-          const ids = (file && file !== '/')
-            ? null
-            : indexIds;
+          // '#x' points into the current page, '/#x' into the home page.
+          const ids = file === '' ? pageIds : (file === '/' ? indexIds : null);
           if (ids) expect(ids, `${path} -> ${href}`).toContain(hash);
         }
       }
@@ -173,8 +183,8 @@ test.describe('Bot and AI readiness', () => {
     expect(res.status()).toBe(200);
     const body = await res.text();
     const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-    expect(locs).toEqual([`${ORIGIN}/`, `${ORIGIN}/impressum.html`, `${ORIGIN}/datenschutz.html`]);
-    expect([...body.matchAll(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/g)]).toHaveLength(3);
+    expect(locs).toEqual(PAGES.map((p) => `${ORIGIN}${p}`));
+    expect([...body.matchAll(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/g)]).toHaveLength(PAGES.length);
 
     for (const path of PAGES) {
       await page.goto(path);
@@ -193,6 +203,7 @@ test.describe('Bot and AI readiness', () => {
     expect(body).toMatch(/^## Seiten$/m);
     expect(body).toMatch(/^## Leistungen$/m);
     expect(body).toMatch(/^## Kontakt$/m);
+    expect(body).toMatch(/^## Apps$/m);
 
     const siteLinks = [...body.matchAll(/\]\((https:\/\/code-alongsi\.de[^)#]*)/g)].map((m) => m[1]);
     expect(siteLinks.length).toBeGreaterThan(0);
@@ -227,7 +238,7 @@ test.describe('Bot and AI readiness', () => {
   for (const path of PAGES) {
     test(`${path} has the metadata crawlers and link previews need`, async ({ page }) => {
       await page.goto(path);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+      await expect(page.locator('html')).toHaveAttribute('lang', pageLang(path));
       await expect(page.locator('title')).not.toBeEmpty();
       await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.{40,}/);
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
@@ -240,6 +251,13 @@ test.describe('Bot and AI readiness', () => {
     });
   }
 
+  test('llms.txt lists every page of the site', async ({ request }) => {
+    const body = await (await request.get('/llms.txt')).text();
+    for (const path of PAGES) {
+      expect(body, path).toContain(`](${ORIGIN}${path})`);
+    }
+  });
+
   test('content is fully present in the static HTML without JavaScript', async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
@@ -247,6 +265,65 @@ test.describe('Bot and AI readiness', () => {
     await expect(page.locator('.service-card')).toHaveCount(6);
     await expect(page.locator('a[href^="mailto:peter@code-alongsi.de"]')).toBeVisible();
     await context.close();
+  });
+
+});
+
+test.describe('Apps section (/apps/)', () => {
+
+  const APPS = ['Sudoku Grove', 'Lernspiele Kids', 'Lernspiele Teens', 'Venomous Snake',
+    'In Memoriam Pascal', 'LinguaFusion', 'The Knots of Alderwick'];
+
+  test('every page links to /apps/ in the footer, never in the main navigation', async ({ page }) => {
+    for (const path of PAGES) {
+      await page.goto(path);
+      await expect(page.locator('.footer a[href="/apps/"]'), path).toHaveCount(1);
+      await expect(page.locator('#main-nav a[href^="/apps"]'), path).toHaveCount(0);
+    }
+  });
+
+  test('overview lists the seven apps, support contact and all legal pages', async ({ page }) => {
+    await page.goto('/apps/');
+    await expect(page.locator('h1')).toHaveText('Apps von Prof. Aufner');
+    await expect(page.locator('.app-list__name')).toHaveText(APPS);
+    await expect(page.locator('main a[href="mailto:peter@code-alongsi.de"]').first()).toBeVisible();
+    for (const href of ['/apps/datenschutz.html', '/apps/nutzungsbedingungen.html', '/apps/en/privacy.html', '/apps/en/terms.html']) {
+      await expect(page.locator(`main a[href="${href}"]`).first(), href).toBeVisible();
+    }
+    // Apps are not published yet: no store links and no prices.
+    await expect(page.locator('a[href*="play.google.com"]')).toHaveCount(0);
+    await expect(page.locator('main')).not.toContainText(/EUR|€/);
+  });
+
+  for (const path of APP_PAGES.slice(1)) {
+    test(`${path} names the controller exactly as the Impressum, the date and the language alternate`, async ({ page }) => {
+      await page.goto(path);
+      const address = page.locator('main address');
+      for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de']) {
+        await expect(address, line).toContainText(line);
+      }
+      await expect(page.locator('.legal-section__updated')).toContainText(/8\. November 2026|8 November 2026/);
+      await expect(page.locator('link[rel="alternate"][hreflang="de"]')).toHaveCount(1);
+      await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
+      for (const app of APPS) await expect(page.locator('main'), app).toContainText(app);
+    });
+  }
+
+  test('no page of the site contains an em dash', async ({ request }) => {
+    for (const path of PAGES) {
+      const html = await (await request.get(path)).text();
+      expect(html.includes('\u2014'), path).toBe(false);
+    }
+  });
+
+  test('English pages label the menu button in English', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/apps/en/privacy.html');
+    const toggle = page.locator('.header__menu-toggle');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-label', 'Close menu');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-label', 'Open menu');
   });
 
 });

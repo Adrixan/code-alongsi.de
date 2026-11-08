@@ -26,7 +26,7 @@ BACKUP_DIR=".deploy-backups"
 KEEP_BACKUPS=10
 
 # Allow-list. Add new top-level pages or directories here.
-PATHS=(index.html impressum.html datenschutz.html robots.txt sitemap.xml llms.txt css js media .well-known)
+PATHS=(index.html impressum.html datenschutz.html apps robots.txt sitemap.xml llms.txt css js media .well-known)
 
 # Dev files of this repository that an earlier git-based deployment left in the
 # public docroot. Reported on every run, only moved away with --quarantine-legacy.
@@ -76,13 +76,13 @@ log "target: ${HOST}:${REMOTE_DIR}  ->  ${SITE_URL}"
 # Warn about stale sitemap dates and an expiring security.txt.
 while read -r page; do
   [[ -z "$page" ]] && continue
-  loc="$SITE_URL/"; [[ "$page" != "index.html" ]] && loc="$SITE_URL/$page"
+  loc="$SITE_URL/${page%index.html}"
   last_commit="$(git log -1 --format=%cs -- "$page")"
   lastmod="$(grep -A1 "<loc>${loc}</loc>" sitemap.xml | sed -n 's#.*<lastmod>\(.*\)</lastmod>.*#\1#p')"
   if [[ -n "$last_commit" && -n "$lastmod" && "$last_commit" > "$lastmod" ]]; then
     warn "sitemap.xml lastmod for ${page} is ${lastmod}, but the page changed on ${last_commit}"
   fi
-done < <(printf '%s\n' index.html impressum.html datenschutz.html)
+done < <(printf '%s\n' index.html impressum.html datenschutz.html; git ls-files -- 'apps/*.html')
 
 expires="$(sed -n 's/^Expires: //p' .well-known/security.txt || true)"
 if [[ -n "$expires" ]]; then
@@ -244,6 +244,11 @@ log "smoke test against ${SITE_URL}"
 check "/"                          "Code-Alongside"              "text/html"
 check "/impressum.html"            "Impressum"                   "text/html"
 check "/datenschutz.html"          "Datenschutz"                 "text/html"
+check "/apps/"                     "Apps von Prof. Aufner"       "text/html"
+check "/apps/datenschutz.html"     "Datenschutzerklärung für die Apps" "text/html"
+check "/apps/nutzungsbedingungen.html" "Nutzungsbedingungen für die Apps" "text/html"
+check "/apps/en/privacy.html"      "Privacy Policy for the Apps" "text/html"
+check "/apps/en/terms.html"        "Terms of Use for the Apps"   "text/html"
 check "/robots.txt"                "Sitemap: ${SITE_URL}/sitemap.xml" "text/plain"
 check "/sitemap.xml"               "<urlset"                     "xml"
 check "/llms.txt"                  "# Code-Alongside"            "text/plain"
