@@ -101,7 +101,9 @@ elif [[ $SKIP_TESTS -eq 0 ]]; then
   if [[ -z "${PLAYWRIGHT_CHROMIUM_PATH:-}" ]]; then
     expected="$(node -e "console.log(require('@playwright/test').chromium.executablePath())" 2>/dev/null || true)"
     if [[ -n "$expected" && ! -x "$expected" ]]; then
-      fallback="$(ls -d "$HOME"/.cache/ms-playwright/chromium-*/chrome-linux/chrome 2>/dev/null | sort -V | tail -1 || true)"
+      # Newest cached build; newer builds unpack to chrome-linux64. Chromium 141 (build 1194) fails to
+      # decode CSS-loaded web fonts in this environment and renders such text with zero width.
+      fallback="$(ls -d "$HOME"/.cache/ms-playwright/chromium-*/chrome-linux*/chrome 2>/dev/null | sort -V | tail -1 || true)"
       if [[ -n "$fallback" && -x "$fallback" ]]; then
         export PLAYWRIGHT_CHROMIUM_PATH="$fallback"
         log "using cached Chromium: $fallback"
