@@ -103,6 +103,7 @@ Single-page static website using semantic HTML5, custom CSS properties for styli
 | 2026-05-27 | Initialized project state | User profile set to Senior |
 | 2026-05-27 | Implemented US-1 and tests | Passed 6/6 tests, fully compliant |
 | 2026-10-13 | US-2: styleguide audit, self-hosted fonts, bot/AI files, deploy script | 22/22 tests; deploy via `npm run deploy` |
+| 2026-11-08 | `/apps/` legal pages for the Android apps (DE/EN), footer link, tests extended | 46/46 tests; deployed at `bf9db3b` |
 
 ---
 
