@@ -70,6 +70,8 @@ test.describe('Content and behaviour', () => {
           // '#x' points into the current page, '/#x' into the home page.
           const ids = file === '' ? pageIds : (file === '/' ? indexIds : null);
           if (ids) expect(ids, `${path} -> ${href}`).toContain(hash);
+          // '/other/page#x' points into another page: its static HTML must carry id="x".
+          else expect(await (await request.get(file)).text(), `${path} -> ${href}`).toContain(`id="${hash}"`);
         }
       }
     }
@@ -302,12 +304,67 @@ test.describe('Apps section (/apps/)', () => {
       for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de']) {
         await expect(address, line).toContainText(line);
       }
-      await expect(page.locator('.legal-section__updated')).toContainText(/8\. November 2026|8 November 2026/);
+      await expect(page.locator('.legal-section__updated')).toContainText(/9\. November 2026|9 November 2026/);
       await expect(page.locator('link[rel="alternate"][hreflang="de"]')).toHaveCount(1);
       await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
       for (const app of APPS) await expect(page.locator('main'), app).toContainText(app);
     });
   }
+
+  test('app terms: five-year support, defined essential duties, named ADR bodies (DE and EN)', async ({ page }) => {
+    const cases = [
+      {
+        path: '/apps/nutzungsbedingungen.html',
+        must: ['fünf Jahre ab der Veröffentlichung der jeweiligen App bei Google Play', '§ 18 Abs. 1 VGG',
+          'Wesentlich sind Pflichten', 'auch für den Verlust von Daten', 'Internet Ombudsstelle',
+          'Schlichtung für Verbrauchergeschäfte', 'fünf Werktagen'],
+        mustNot: /zwei Jahre ab Ihrem Kauf|Verlust von Spielständen haftet der Anbieter nicht|nicht bereit oder verpflichtet/,
+      },
+      {
+        path: '/apps/en/terms.html',
+        must: ['five years from the release of the app concerned on Google Play', '§ 18(1) VGG',
+          'Essential obligations are those', 'including for loss of data', 'Internet Ombudsstelle',
+          'Schlichtung für Verbrauchergeschäfte', 'five working days'],
+        mustNot: /two years from your purchase|not liable for loss of saved progress|neither willing nor obliged/,
+      },
+    ];
+    for (const { path, must, mustNot } of cases) {
+      await page.goto(path);
+      const main = page.locator('main');
+      for (const text of must) await expect(main, `${path}: ${text}`).toContainText(text);
+      await expect(main, path).not.toContainText(mustNot);
+      await expect(main.locator('a[href="https://www.ombudsstelle.at/"]'), path).toHaveCount(1);
+      await expect(main.locator('a[href="https://www.verbraucherschlichtung.at/"]'), path).toHaveCount(1);
+    }
+  });
+
+  test('app privacy: order data on Art. 6(1)(c) and (f) with Google as source, LinguaFusion install-time permissions', async ({ page }) => {
+    const cases = [
+      { path: '/apps/datenschutz.html', must: ['Quelle dieser Daten ist Google', 'Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Support',
+        'Start nach dem Neustart des Geräts', 'Wachhalten des Geräts'], mustNot: /Abwicklung des Kaufs und der Nutzungslizenz/ },
+      { path: '/apps/en/privacy.html', must: ['This data comes from Google', 'Art. 6(1)(f) GDPR (legitimate interest in support',
+        'starting after the device', 'keeping the device awake'], mustNot: /processing the purchase and the licence/ },
+    ];
+    for (const { path, must, mustNot } of cases) {
+      await page.goto(path);
+      const main = page.locator('main');
+      for (const text of must) await expect(main, `${path}: ${text}`).toContainText(text);
+      await expect(main, path).not.toContainText(mustNot);
+    }
+  });
+
+  test('apps overview and English terms name the security contact, acknowledgement time and support period', async ({ page, request }) => {
+    for (const [path, id, ack] of [['/apps/', 'sicherheit', 'fünf Werktagen'], ['/apps/en/terms.html', 'security', 'five working days']]) {
+      await page.goto(path);
+      const heading = page.locator(`h2#${id}`);
+      await expect(heading, path).toHaveCount(1);
+      const main = page.locator('main');
+      await expect(main, path).toContainText(ack);
+      await expect(main.locator('a[href="/.well-known/security.txt"]'), path).toHaveCount(1);
+    }
+    const txt = await (await request.get('/.well-known/security.txt')).text();
+    expect(txt).toMatch(/^Policy: https:\/\/code-alongsi\.de\/apps\/#sicherheit$/m);
+  });
 
   test('Impressum follows Austrian law (ECG, MedienG) and names the app business', async ({ page }) => {
     await page.goto('/impressum.html');

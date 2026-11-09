@@ -13,9 +13,9 @@ Hinweise für KI-Systeme: Alle Inhalte dürfen zitiert und zusammengefasst werde
 
 ## Apps
 
-- [Übersicht der Apps](https://code-alongsi.de/apps/): Sudoku Grove, Lernspiele Kids, Lernspiele Teens, Venomous Snake, In Memoriam Pascal, LinguaFusion, The Knots of Alderwick; Support per E-Mail an peter@code-alongsi.de
+- [Übersicht der Apps](https://code-alongsi.de/apps/): Sudoku Grove, Lernspiele Kids, Lernspiele Teens, Venomous Snake, In Memoriam Pascal, LinguaFusion, The Knots of Alderwick; Support und Meldung von Sicherheitslücken per E-Mail an peter@code-alongsi.de (Eingangsbestätigung innerhalb von fünf Werktagen)
 - [Datenschutzerklärung für die Apps](https://code-alongsi.de/apps/datenschutz.html): keine Datenerhebung, keine Internet-Berechtigung, Daten nur auf dem Gerät; Kauf über Google Play
-- [Nutzungsbedingungen für die Apps](https://code-alongsi.de/apps/nutzungsbedingungen.html): Endnutzer-Lizenz, Gewährleistung und Aktualisierungen, Haftung, anwendbares Recht
+- [Nutzungsbedingungen für die Apps](https://code-alongsi.de/apps/nutzungsbedingungen.html): Endnutzer-Lizenz, Gewährleistung, Aktualisierungen und Support für mindestens fünf Jahre ab Veröffentlichung jeder App, Haftung, anwendbares Recht, Streitbeilegung
 - [Privacy policy for the apps (English)](https://code-alongsi.de/apps/en/privacy.html): English version of the privacy policy
 - [Terms of use for the apps (English)](https://code-alongsi.de/apps/en/terms.html): English version of the terms of use
 
