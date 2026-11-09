@@ -18,4 +18,6 @@
 
 - **US-2: Styleguide, Bot/KI, Deployment**
   - Status: Done
-  - Open (needs owner decision): remove or quarantine legacy dev files in the public docroot (`bash scripts/deploy.sh --quarantine-legacy`), Impressum legal references (§ 5 TMG / § 55 RStV are German norms; Austrian provider: ECG, UGB, GewO), security.txt renewal before 2027-09-30.
+  - Open (needs owner decision): remove or quarantine legacy dev files in the public docroot (`bash scripts/deploy.sh --quarantine-legacy`), security.txt renewal before 2027-09-30.
+
+- 2026-11-09: Impressum legal references corrected (ECG, MedienG, GewO) and deployed.
