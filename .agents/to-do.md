@@ -21,3 +21,4 @@
   - Open (needs owner decision): remove or quarantine legacy dev files in the public docroot (`bash scripts/deploy.sh --quarantine-legacy`), security.txt renewal before 2027-09-30.
 
 - 2026-11-09: Impressum legal references corrected (ECG, MedienG, GewO) and deployed.
+- 2026-11-09: App terms and privacy aligned with the launch consumer-law research, five-year support, CRA security contact; deployed at `2d9054a`. Open: netcup sentence in privacy § 11 after Peter confirms its preconditions; CH seller question.
