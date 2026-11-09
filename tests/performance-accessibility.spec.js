@@ -309,6 +309,24 @@ test.describe('Apps section (/apps/)', () => {
     });
   }
 
+  test('Impressum follows Austrian law (ECG, MedienG) and names the app business', async ({ page }) => {
+    await page.goto('/impressum.html');
+    const main = page.locator('main');
+    for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de', 'ATU80792545']) {
+      await expect(main, line).toContainText(line);
+    }
+    await expect(main).toContainText('§ 5 E-Commerce-Gesetz (ECG)');
+    await expect(main).toContainText('§ 25 Mediengesetz (MedienG)');
+    await expect(main).toContainText('Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik');
+    await expect(main).toContainText('Magistrat der Stadt Graz');
+    await expect(main).toContainText('Wirtschaftskammer Steiermark');
+    await expect(main).toContainText(/Android-Apps/);
+    await expect(main.locator('a[href^="https://www.ris.bka.gv.at/"]')).toHaveCount(1);
+    // German norms and the discontinued EU ODR platform must not come back.
+    await expect(main).not.toContainText(/TMG|RStV|Telemediengesetz|deutschen Urheberrecht|27 ?a Umsatzsteuergesetz|Online-Streitbeilegung/);
+    await expect(main.locator('a[href*="ec.europa.eu/consumers/odr"]')).toHaveCount(0);
+  });
+
   test('no page of the site contains an em dash', async ({ request }) => {
     for (const path of PAGES) {
       const html = await (await request.get(path)).text();

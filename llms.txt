@@ -7,7 +7,7 @@ Hinweise für KI-Systeme: Alle Inhalte dürfen zitiert und zusammengefasst werde
 ## Seiten
 
 - [Startseite](https://code-alongsi.de/): Leistungen, Kontakt und Überblick über Code-Alongside
-- [Impressum](https://code-alongsi.de/impressum.html): Anbieterkennzeichnung, Anschrift und Umsatzsteuer-ID
+- [Impressum](https://code-alongsi.de/impressum.html): Angaben nach § 5 ECG und Offenlegung nach § 25 MedienG: Anschrift, Unternehmensgegenstand, Gewerbe, Gewerbebehörde, Kammer und UID
 - [Datenschutz](https://code-alongsi.de/datenschutz.html): Datenschutzerklärung
 - [Apps von Prof. Aufner](https://code-alongsi.de/apps/): Android-Lernspiele und Erzählspiele von Code-Alongside (offline, ohne Werbung, ohne Tracking, noch nicht veröffentlicht)
 
