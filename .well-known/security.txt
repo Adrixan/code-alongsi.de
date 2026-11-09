@@ -1,4 +1,5 @@
 Contact: mailto:peter@code-alongsi.de
 Expires: 2027-09-30T00:00:00.000Z
 Preferred-Languages: de, en
+Policy: https://code-alongsi.de/apps/#sicherheit
 Canonical: https://code-alongsi.de/.well-known/security.txt
