@@ -23,3 +23,7 @@ Brand and style: `~/.config/ai/BRANDING.md` ("Bioluminescent Night", Space Grote
 - `.well-known/security.txt` expires 2027-09-30. Renew it before then (the deploy warns 30 days ahead).
 - Local test browser: if Playwright's Chromium build is missing, set `PLAYWRIGHT_CHROMIUM_PATH` (the deploy script auto-detects a cached one).
 - `/apps/` (approved by Peter 2026-11-08): self-contained section with the legal pages of the Android apps (overview, `datenschutz.html`, `nutzungsbedingungen.html`, English in `apps/en/`). Linked only from the footer ("Unternehmen" > "Apps"), never from the main navigation. Google Play listings point to these URLs: never rename or move them. Links inside the site are root-absolute (`/apps/...`), which the link test enforces. When an app's features, permissions or data handling change, update both privacy pages and the "Stand" date before that app version ships.
+
+## Web platform (Peter, 2026-11-11)
+- New or changed HTML, CSS and client-side JS start from skill `modern-web-guidance` (installed CLI `modern-web-guidance`, not `npx`) and are checked in the browser with the `chrome-devtools` MCP.
+- Weekly modernization: `web-modernize` (Sundays 08:00, list `~/sync/ai/web-projects.txt`) runs `legacy-scan`, applies only verified behaviour-preserving fixes through this file's test and publish rules, and files larger changes in `.agents/to-do.md`.
