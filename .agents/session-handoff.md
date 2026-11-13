@@ -3,7 +3,7 @@
 *Updated: 2026-11-13*
 
 ## Trajectory
-2026-11-13: this role also handled a non-website task from the Greeter: Nextcloud playground update to 35.0.3 and a calendar subscription; state in `~/code/.agents/session-handoff.md` and the knowledge-map details (Machines). The website itself was not touched.
+2026-11-13: this role handled a non-website task from the Greeter and Peter: Nextcloud playground (playground.code-alongsi.de) updated to 35.0.3 with all apps; read-only calendar subscription `julia` (1 h refresh); schema drift aligned; temp dir, phone region, server ID, log level, AppAPI off; HSTS via the new `HTACCESS_EXTRA` setting of `~/code/update-nextcloud.sh`; 50 leftover tables of removed apps dropped (dumps in `/nextcloud-releases/manual-*`). Memory limit, OPcache, APCu and 2FA enforcement are closed as not fixable (Peter). Full state: `~/code/.agents/session-handoff.md` and the knowledge-map details (Machines). Mistake: a cleanup deleted this project's whole `.scratch/` (gitignored temp files from the 2026-11-08/09 deploys: screenshots, logs, helper scripts); not recoverable, nothing tracked was lost. The website itself was not touched.
 2026-11-09 (afternoon): app terms and privacy policy aligned with the launch consumer-law research, five-year support period, CRA security contact (handed over by the lernspiele-android-kit coordinator under Peter's go of about 15:45; wording from `~/Obsidian/Adrixan/Research/Reports/2026-11-05-android-apps-from-the-lernspiel/notes/launch-consumer-law.md`). 2026-11-09 (morning): Impressum corrected to Austrian law. 2026-11-08: `/apps/` section with the legal pages of the seven Android apps. Earlier: US-2 (styleguide, bot/AI readiness, scripted deploy), live since 2026-10-20.
 
 ## State
