@@ -274,7 +274,7 @@ test.describe('Bot and AI readiness', () => {
 test.describe('Apps section (/apps/)', () => {
 
   const APPS = ['Sudoku Grove', 'Lernspiele Kids', 'Lernspiele Teens', 'Venomous Snake',
-    'In Memoriam Pascal', 'LinguaFusion', 'The Knots of Alderwick'];
+    'In Memoriam Pascal', 'LinguaFusion', 'The Knots of Alderwick', 'Buchstabenfährte', 'Themetrail'];
 
   test('every page links to /apps/ in the footer, never in the main navigation', async ({ page }) => {
     for (const path of PAGES) {
@@ -284,7 +284,7 @@ test.describe('Apps section (/apps/)', () => {
     }
   });
 
-  test('overview lists the seven apps, support contact and all legal pages', async ({ page }) => {
+  test('overview lists the nine apps, support contact and all legal pages', async ({ page }) => {
     await page.goto('/apps/');
     await expect(page.locator('h1')).toHaveText('Apps von Prof. Aufner');
     await expect(page.locator('.app-list__name')).toHaveText(APPS);
@@ -304,7 +304,7 @@ test.describe('Apps section (/apps/)', () => {
       for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de']) {
         await expect(address, line).toContainText(line);
       }
-      await expect(page.locator('.legal-section__updated')).toContainText(/9\. November 2026|9 November 2026/);
+      await expect(page.locator('.legal-section__updated')).toContainText(/13\. November 2026|13 November 2026/);
       await expect(page.locator('link[rel="alternate"][hreflang="de"]')).toHaveCount(1);
       await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
       for (const app of APPS) await expect(page.locator('main'), app).toContainText(app);
