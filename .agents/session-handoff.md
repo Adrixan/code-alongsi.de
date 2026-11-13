@@ -1,8 +1,9 @@
 # Session Handoff
 
-*Updated: 2026-11-09*
+*Updated: 2026-11-13*
 
 ## Trajectory
+2026-11-13: this role also handled a non-website task from the Greeter: Nextcloud playground update to 35.0.3 and a calendar subscription; state in `~/code/.agents/session-handoff.md` and the knowledge-map details (Machines). The website itself was not touched.
 2026-11-09 (afternoon): app terms and privacy policy aligned with the launch consumer-law research, five-year support period, CRA security contact (handed over by the lernspiele-android-kit coordinator under Peter's go of about 15:45; wording from `~/Obsidian/Adrixan/Research/Reports/2026-11-05-android-apps-from-the-lernspiel/notes/launch-consumer-law.md`). 2026-11-09 (morning): Impressum corrected to Austrian law. 2026-11-08: `/apps/` section with the legal pages of the seven Android apps. Earlier: US-2 (styleguide, bot/AI readiness, scripted deploy), live since 2026-10-20.
 
 ## State
