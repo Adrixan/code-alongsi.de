@@ -22,3 +22,4 @@
 
 - 2026-11-09: Impressum legal references corrected (ECG, MedienG, GewO) and deployed.
 - 2026-11-09: App terms and privacy aligned with the launch consumer-law research, five-year support, CRA security contact; deployed at `2d9054a`. Open: netcup sentence in privacy § 11 after Peter confirms its preconditions; CH seller question.
+- 2026-11-14: D22 A applied and deployed at `547070a` (terms §§ 2, 3, 6, 7, privacy § 3, GISA name form). Open: CH exception (D21 A) waits for the lawyer (draft in the vault, see AGENTS.md); privacy § 11 waits for Peter's netcup confirmations.
