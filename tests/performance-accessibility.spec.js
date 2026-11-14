@@ -301,10 +301,10 @@ test.describe('Apps section (/apps/)', () => {
     test(`${path} names the controller exactly as the Impressum, the date and the language alternate`, async ({ page }) => {
       await page.goto(path);
       const address = page.locator('main address');
-      for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de']) {
+      for (const line of ['Code-Alongside', 'Dipl.-Ing. Dipl.-Ing. Peter Wilhelm Aufner, BSc', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de']) {
         await expect(address, line).toContainText(line);
       }
-      await expect(page.locator('.legal-section__updated')).toContainText(/13\. November 2026|13 November 2026/);
+      await expect(page.locator('.legal-section__updated')).toContainText(/14\. November 2026|14 November 2026/);
       await expect(page.locator('link[rel="alternate"][hreflang="de"]')).toHaveCount(1);
       await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
       for (const app of APPS) await expect(page.locator('main'), app).toContainText(app);
@@ -353,6 +353,48 @@ test.describe('Apps section (/apps/)', () => {
     }
   });
 
+  test('app terms: neutral contracting party, teachers and tutoring licence, withdrawal via Google Play, voluntary updates (DE and EN)', async ({ page }) => {
+    const cases = [
+      {
+        path: '/apps/nutzungsbedingungen.html',
+        must: ['Wer beim Kauf Ihr Vertragspartner ist, zeigt Google Play', 'in der Nachhilfe und in der Lernbegleitung',
+          'braucht einen eigenen Kauf', 'Google Play holt Zustimmung und Bestätigung beim Kauf ein',
+          'den Kaufpreis auch später über Google Play erstatten', 'Zusätzlich und freiwillig',
+          'Diese Zusage schränkt Ihre gesetzlichen Rechte nicht ein'],
+        mustNot: /Verkäufer und Ihr Vertragspartner für den Kauf ist Google|für persönliche, nicht kommerzielle Zwecke/,
+      },
+      {
+        path: '/apps/en/terms.html',
+        must: ['Google Play shows who your contracting party is', 'tutoring and learning support',
+          'needs its own purchase', 'Google Play collects that consent and acknowledgement',
+          'refund the price later through Google Play', 'In addition, and voluntarily',
+          'This undertaking does not limit your statutory rights'],
+        mustNot: /The seller and your contracting party for the purchase is|for personal, non-commercial purposes/,
+      },
+    ];
+    for (const { path, must, mustNot } of cases) {
+      await page.goto(path);
+      const main = page.locator('main');
+      for (const text of must) await expect(main, `${path}: ${text}`).toContainText(text);
+      await expect(main, path).not.toContainText(mustNot);
+    }
+  });
+
+  test('app privacy: on-device storage names § 165 Abs. 3 TKG 2021 (DE and EN)', async ({ page }) => {
+    for (const [path, text] of [['/apps/datenschutz.html', '§ 165 Abs. 3 Telekommunikationsgesetz 2021'],
+      ['/apps/en/privacy.html', '§ 165(3) Austrian Telecommunications Act 2021']]) {
+      await page.goto(path);
+      await expect(page.locator('main'), path).toContainText(text);
+    }
+  });
+
+  test('legal pages name the trader in the GISA form', async ({ page }) => {
+    for (const path of ['/impressum.html', '/datenschutz.html']) {
+      await page.goto(path);
+      await expect(page.locator('main'), path).toContainText('Dipl.-Ing. Dipl.-Ing. Peter Wilhelm Aufner, BSc');
+    }
+  });
+
   test('apps overview and English terms name the security contact, acknowledgement time and support period', async ({ page, request }) => {
     for (const [path, id, ack] of [['/apps/', 'sicherheit', 'fünf Werktagen'], ['/apps/en/terms.html', 'security', 'five working days']]) {
       await page.goto(path);
@@ -369,7 +411,7 @@ test.describe('Apps section (/apps/)', () => {
   test('Impressum follows Austrian law (ECG, MedienG) and names the app business', async ({ page }) => {
     await page.goto('/impressum.html');
     const main = page.locator('main');
-    for (const line of ['Code-Alongside', 'Peter Aufner', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de', 'ATU80792545']) {
+    for (const line of ['Code-Alongside', 'Dipl.-Ing. Dipl.-Ing. Peter Wilhelm Aufner, BSc', 'Sandgasse 25/8', '8010 Graz', '+43 676 3838915', 'peter@code-alongsi.de', 'ATU80792545']) {
       await expect(main, line).toContainText(line);
     }
     await expect(main).toContainText('§ 5 E-Commerce-Gesetz (ECG)');
