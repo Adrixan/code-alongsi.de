@@ -106,6 +106,8 @@ Single-page static website using semantic HTML5, custom CSS properties for styli
 | 2026-11-08 | `/apps/` legal pages for the Android apps (DE/EN), footer link, tests extended | 46/46 tests; deployed at `bf9db3b` |
 | 2026-11-09 | Impressum: § 5 ECG and § 25 MedienG, Gewerbe/Behörde/Kammer, ODR link removed, app business purpose | 47/47 tests; deployed at `ad18405` |
 | 2026-11-09 | App terms and privacy: liability, ADR bodies, order-data basis, LinguaFusion permissions, five-year support, security contact | 50/50 tests; deployed at `2d9054a` |
+| 2026-11-13 | Buchstabenfährte and Themetrail added to the app pages | deployed at `e1639d3` (verified live 2026-11-14) |
+| 2026-11-14 | D22 A: terms §§ 2, 3, 6, 7 and privacy § 3 drafts, GISA name form; D21 A: CH draft in the vault (pending lawyer) | 53/53 tests; deployed at `547070a` |
 
 ---
 
@@ -119,4 +121,4 @@ Single-page static website using semantic HTML5, custom CSS properties for styli
 
 ---
 
-*Last updated: 2026-11-09*
+*Last updated: 2026-11-14*
