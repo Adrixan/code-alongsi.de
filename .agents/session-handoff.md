@@ -28,3 +28,7 @@ Earlier: 2026-11-13 Nextcloud playground task (see `~/code/.agents/session-hando
 - When an app ships with features or permissions that differ from the privacy policy, update both language versions, the "Stand" date and sitemap lastmod, then deploy.
 - February 2027: after Google's amended DDA and Play Terms (marketplace model from 2027-03-01) revisit terms §§ 2, 6, 7, 13 and the CH section.
 - Renew security.txt before 2027-09-30.
+
+## Open items moved from the retired decision list (2026-11-15)
+The shared list `~/Obsidian/Adrixan/Open tasks.md` was retired on 2026-11-15 (archive `~/code/.agents/archive/open-tasks-2026-11-15.md`); these items had no other home.
+- Peter, low: confirm the trade licence type (Handelsgewerbe or other) for the imprint, together with the GISA-Zahl.
