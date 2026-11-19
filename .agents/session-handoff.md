@@ -4,7 +4,7 @@
 
 ## Trajectory
 2026-11-19: brief from the taktfunke-android session (Peter's order "wrap everything up for release"): Taktfunke (`org.aufner.taktfunke`, Music & Audio tool, zero permissions) added to the `/apps/` legal pages. Facts checked against the taktfunke code (photo picker plus `OpenDocumentTree`/`OpenMultipleDocuments`, `CreateDocument` export, `FLAG_SECURE` plus `setRecentsScreenshotEnabled`, confirm-credential lock, backup rules include only `datastore/library.json`). No section renumbering (AGENTS.md and the CH draft cite privacy §§ 10, 11). Privacy DE/EN: § 1 scope, § 3 device data plus "Alles vergessen", § 4 backup only patterns and programs, § 5 save dialog, § 8 "Taktfunke hat gar keine Berechtigung" (the "no access to photos" sentence stays true), § 9 bullet plus h3 subsection on picker-based read-only access, no copies or caches, app lock, screen privacy, forget everything. Terms DE/EN: § 1 scope, § 4 own content stays the user's, § 5 app lock needs a screen lock, § 9 liability note. Overview: tenth app, lead "Lernspiele, Erzählspiele und ein Werkzeug". llms.txt, sitemap lastmod 2026-11-19, Stand 19 November 2026, test date and app list updated. Commit `263be35`, merge `da10314`, deploy 2026-11-19 05:39 UTC: 7 files uploaded, 27/27 checksums match, smoke test green, backup `.deploy-backups/20261119T053907Z.tar`.
-Open for Taktfunke: privacy § 12 (Kinder) does not yet place Taktfunke in an audience group; add it once Peter fixes the target age and content rating at the Play gate.
+Peter 2026-11-19: Taktfunke is for every age group. Privacy § 12 DE/EN now lists it with the apps also made for children (Families Policy) plus a sentence that picked media never leave the device; commit merged as `74a4d55`, deployed 05:43 UTC (2 files, 27/27 checksums, smoke test green, backup `.deploy-backups/20261119T054313Z.tar`). Play side: target audience must include the under-13 groups and the Families Policy declarations apply (taktfunke session).
 
 2026-11-15 (web-modernize timer, unattended): Modern Web Guidance legacy-scan of `index.html`, `datenschutz.html`, `impressum.html`, `css/`, `js/`, `apps/`: 0 findings (35 rules, 33 guides). Scanner validated with a throw-away probe outside the repo (2 findings), so the result is real. No code change, no deploy; live stays `547070a`. Report: `~/sync/ai/web-modernize/2026-11-15/code-alongsi.de.md`. From now on the AGENTS.md "Web platform" rule applies to all web work here.
 
@@ -17,7 +17,7 @@ Open for Taktfunke: privacy § 12 (Kinder) does not yet place Taktfunke in an au
 Earlier: 2026-11-13 Nextcloud playground task (see `~/code/.agents/session-handoff.md`); 2026-11-09 app terms and privacy aligned with the consumer-law research; 2026-11-08 `/apps/` section.
 
 ## State
-- Live site == `main` at `da10314` (later commits touch only `.agents/`).
+- Live site == `main` at `74a4d55` (later commits touch only `.agents/`).
 - Privacy § 10 still says "Verkäufer und Vertragspartner beim Kauf ist Google" without a CH exception. Harmless until the first production release with CH on the country list; the CH draft replaces it.
 - Local tests need `PLAYWRIGHT_CHROMIUM_PATH=$(ls -d ~/.cache/ms-playwright/chromium-*/chrome-linux*/chrome | sort -V | tail -1)` (the installed @playwright/test expects headless shell 1223, not cached); `npm run deploy` sets it itself.
 

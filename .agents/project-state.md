@@ -109,6 +109,7 @@ Single-page static website using semantic HTML5, custom CSS properties for styli
 | 2026-11-13 | Buchstabenfährte and Themetrail added to the app pages | deployed at `e1639d3` (verified live 2026-11-14) |
 | 2026-11-14 | D22 A: terms §§ 2, 3, 6, 7 and privacy § 3 drafts, GISA name form; D21 A: CH draft in the vault (pending lawyer) | 53/53 tests; deployed at `547070a` |
 | 2026-11-19 | Taktfunke added to the app privacy policy and terms (DE/EN), overview, llms.txt; Stand 19 November 2026 | 53/53 tests; deployed at `da10314` |
+| 2026-11-19 | Privacy § 12: Taktfunke for all ages (Peter) | 53/53 tests; deployed at `74a4d55` |
 
 ---
 
