@@ -1,6 +1,6 @@
 # Session Handoff
 
-*Updated: 2026-11-19*
+*Updated: 2026-11-19 (session stopped by Peter, all work done and live at `74a4d55`)*
 
 ## Trajectory
 2026-11-19: brief from the taktfunke-android session (Peter's order "wrap everything up for release"): Taktfunke (`org.aufner.taktfunke`, Music & Audio tool, zero permissions) added to the `/apps/` legal pages. Facts checked against the taktfunke code (photo picker plus `OpenDocumentTree`/`OpenMultipleDocuments`, `CreateDocument` export, `FLAG_SECURE` plus `setRecentsScreenshotEnabled`, confirm-credential lock, backup rules include only `datastore/library.json`). No section renumbering (AGENTS.md and the CH draft cite privacy §§ 10, 11). Privacy DE/EN: § 1 scope, § 3 device data plus "Alles vergessen", § 4 backup only patterns and programs, § 5 save dialog, § 8 "Taktfunke hat gar keine Berechtigung" (the "no access to photos" sentence stays true), § 9 bullet plus h3 subsection on picker-based read-only access, no copies or caches, app lock, screen privacy, forget everything. Terms DE/EN: § 1 scope, § 4 own content stays the user's, § 5 app lock needs a screen lock, § 9 liability note. Overview: tenth app, lead "Lernspiele, Erzählspiele und ein Werkzeug". llms.txt, sitemap lastmod 2026-11-19, Stand 19 November 2026, test date and app list updated. Commit `263be35`, merge `da10314`, deploy 2026-11-19 05:39 UTC: 7 files uploaded, 27/27 checksums match, smoke test green, backup `.deploy-backups/20261119T053907Z.tar`.
