@@ -96,7 +96,7 @@
                         Email: <a href="mailto:peter@code-alongsi.de">peter@code-alongsi.de</a>
                     </address>
                     <p>
-                        This policy applies to the Android apps Sudoku Grove, Lernspiele Kids, Lernspiele Teens, Venomous Snake, In Memoriam Pascal, LinguaFusion, The Knots of Alderwick, Buchstabenfährte and Themetrail ("the apps").
+                        This policy applies to the Android apps Sudoku Grove, Lernspiele Kids, Lernspiele Teens, Venomous Snake, In Memoriam Pascal, LinguaFusion, The Knots of Alderwick, Buchstabenfährte, Themetrail and Taktfunke ("the apps").
                         Visits to this website are covered by the
                         <a href="/datenschutz.html" hreflang="de">website privacy policy (German)</a>.
                         The German version of this policy is
@@ -112,10 +112,11 @@
                     </ul>
 
                     <h2>3. Data on your device</h2>
-                    <p>So that you can continue playing and learning, the apps store the following in the app's private storage on your device:</p>
+                    <p>So that you can carry on where you left off, the apps store the following in the app's private storage on your device:</p>
                     <ul>
                         <li>game progress and learning progress (for example solved tasks, results, statistics, review dates),</li>
                         <li>settings (for example theme, difficulty, read-aloud, speech rate),</li>
+                        <li>in Taktfunke: your beat patterns and programs, references to the folders and files you picked, and the alignment of dots and click for each audio output (section 9),</li>
                         <li>profile names you enter in the app yourself, for example for several children in one family. A first name or nickname is enough.</li>
                     </ul>
                     <p>
@@ -127,7 +128,8 @@
                     </p>
                     <p>
                         To delete it: Android Settings &gt; Apps &gt; name of the app &gt; Storage &gt; Clear data, or
-                        uninstall the app. The developer holds no copy.
+                        uninstall the app. In Taktfunke, "Forget everything" in the settings also deletes all of the app's
+                        data (section 9). The developer holds no copy.
                     </p>
 
                     <h2>4. Android backup</h2>
@@ -138,13 +140,16 @@
                         end with your device's screen lock (PIN, pattern or password) if one is set. The backup is a
                         feature of Android and Google; the developer receives no data from it and has no access. Google's
                         terms and privacy policy apply. You can switch backup off at any time in Android settings
-                        (depending on the device under "System" or "Google", entry "Backup").
+                        (depending on the device under "System" or "Google", entry "Backup"). Taktfunke includes only the
+                        file with your patterns and programs in backup and in transfer to a new device, never settings and
+                        never references to your photos, videos or music.
                     </p>
 
                     <h2>5. Export, import and printing</h2>
                     <p>
                         Some apps can export progress, program code, a report or a puzzle booklet as a file. This happens
-                        only when you start it yourself: the app creates the file and opens the Android share sheet. Only
+                        only when you start it yourself: the app creates the file and opens the Android share sheet
+                        (Taktfunke opens the Android save dialog instead, where you choose the location and file name). Only
                         you decide where the file goes (your storage, another app or a person); the app or person you
                         choose is responsible for what happens next. On import, the app reads only the file you pick in
                         the Android file picker, validates it and stores its content locally. For printing, the app opens
@@ -169,7 +174,8 @@
                     <h2>8. Permissions</h2>
                     <p>
                         The apps have no internet permission and request no access to location, camera, microphone,
-                        contacts, photos or the advertising ID. The only permission an app may ask for is the
+                        contacts, photos or the advertising ID. Taktfunke has no permission at all: it reads photos, videos
+                        and music only when you pick them yourself in an Android picker (section 9). The only permission an app may ask for is the
                         notification permission in LinguaFusion, and only if you switch reminders on. LinguaFusion also
                         has two permissions that Android grants at installation without asking: starting after the device
                         restarts (so planned reminders survive) and briefly keeping the device awake to show a reminder.
@@ -185,6 +191,23 @@
                         <li><strong>LinguaFusion:</strong> pronunciation through read-aloud; reminders (section 7) with the permissions for notifications, for starting after a restart and for briefly keeping the device awake (section 8); export of learning progress.</li>
                         <li><strong>The Knots of Alderwick:</strong> saved games on the device; export of saved games through the share sheet.</li>
                         <li><strong>Buchstabenfährte and Themetrail:</strong> read-aloud of the game's announcements; export and import of progress; printing of A4 puzzle booklets.</li>
+                        <li><strong>Taktfunke:</strong> playback of your own photos, videos and music that you pick yourself, without any permission; export and import of patterns and programs; app lock and screen privacy. Details in the following subsection.</li>
+                    </ul>
+
+                    <h3>Taktfunke: your photos, videos and music</h3>
+                    <p>
+                        Taktfunke shows your own photos and videos to a visible and audible beat (dots on a lane and a
+                        click synthesised on the device), with your own music if you wish.
+                    </p>
+                    <ul>
+                        <li>Access only to what you pick: you choose photos, videos and music yourself in Android's pickers (the photo picker for single photos and videos, the folder and file pickers for folders and music). Taktfunke thereby gets read-only access to exactly those folders and files. The app requests no storage, photo or media permission and sees no other content on your device.</li>
+                        <li>The app keeps this access so that your selection survives a restart, until you remove a folder or file in the app or choose "Forget everything".</li>
+                        <li>The app reads the files where they are. It does not copy them, keeps no thumbnails or caches on the device, and writes, moves, changes or deletes nothing in your media folders. Photos, videos and music are only shown and played on the device; neither the developer nor any third party receives them.</li>
+                        <li>The app stores only settings (including the references to the chosen folders and files and the alignment of dots and click for each audio output) and your patterns and programs (section 3). Android backup and transfer to a new device cover only the patterns and programs (section 4).</li>
+                        <li>You can export and import patterns and programs as a JSON file, only when you start it yourself; you choose the target in the Android dialog (section 5).</li>
+                        <li>App lock (optional): Taktfunke has Android check your device's screen lock (PIN, pattern, password or biometrics, shown by the system). The app never sees your input or any biometric data; it only learns whether unlocking succeeded.</li>
+                        <li>Screen privacy (optional): blocks screenshots and screen recordings of the app and hides the app in the recent apps overview.</li>
+                        <li>"Forget everything" in the settings releases all folder and file access and deletes all of the app's data; uninstalling does the same. Your photos, videos and music remain unchanged.</li>
                     </ul>
 
                     <h2>10. Purchase through Google Play</h2>
@@ -252,7 +275,7 @@
                     </p>
 
                     <p class="legal-section__updated">
-                        <strong>Last updated:</strong> 14 November 2026
+                        <strong>Last updated:</strong> 19 November 2026
                     </p>
                 </div>
             </div>
